@@ -2,13 +2,9 @@
 if ($vccred) { Remove-Variable vccred }
 if ($global:DefaultVIServers) { Disconnect-VIServer -Server * -Confirm:$false }
 
-$vccred = Get-Credential -Credential F8073716
+$vccred = Get-Credential -Credential herzog
 
-$vclist = "nfvvm01-vcn-01.timbrasil.nfvi","nfvvm01-vcn-02.timbrasil.nfvi","nfvvm01-vcn-03.timbrasil.nfvi", "nfvvm01-vcn-05.timbrasil.nfvi",
-          "vim-vm01-vcsa00.oss.timbrasil.com.br", "vim-vm01-vcsa01.oss.timbrasil.com.br", "vim-vm01-vcsa02.oss.timbrasil.com.br", 
-          "vim-vm01-vcsa03.oss.timbrasil.com.br", "vim-vm01-vcsa04.oss.timbrasil.com.br", "vim-vm01-vcsa05.oss.timbrasil.com.br", 
-          "vim-vm01-vcsa06.oss.timbrasil.com.br", "vim-vm01-vcsa07.oss.timbrasil.com.br", "vim-vm01-vcsa08.oss.timbrasil.com.br", 
-          "vim-vm01-vcsa09.oss.timbrasil.com.br", "vim-vm01-vcsa10.oss.timbrasil.com.br"
+$vclist = "XXX","XXX"
 
 $ClusterWildCard = "*"
 
@@ -37,8 +33,8 @@ foreach ($myvc in $vclist) {
       $esxcliargs = $esxcli.system.account.add.CreateArgs()
       $esxcliargs.Item('description') = 'Administrator'
       $esxcliargs.Item('id') = "offline"
-      $esxcliargs.Item('password') = "NFv10ps!!r0x"
-      $esxcliargs.Item('passwordconfirmation') = "NFv10ps!!r0x"
+      $esxcliargs.Item('password') = "XXX"
+      $esxcliargs.Item('passwordconfirmation') = "XXX"
       $esxcli.system.account.add.Invoke($esxcliargs) | Out-Null
 
       $esxcliper = $esxcli.system.permission.set.CreateArgs()
@@ -66,8 +62,8 @@ foreach ($myvc in $vclist) {
       $esxcliargs = $esxcli.system.account.set.CreateArgs()
       $esxcliargs.Item('description') = 'Administrator'
       $esxcliargs.Item('id') = 'root'
-      $esxcliargs.Item('password') = 'kN0Wl3dg3isPower!!'
-      $esxcliargs.Item('passwordconfirmation') = 'kN0Wl3dg3isPower!!'
+      $esxcliargs.Item('password') = 'XXX'
+      $esxcliargs.Item('passwordconfirmation') = 'XXX'
       $esxcli.system.account.set.Invoke($esxcliargs) | Out-Null
 
       if ($?) {
