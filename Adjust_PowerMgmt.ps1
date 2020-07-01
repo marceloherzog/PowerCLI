@@ -1,13 +1,13 @@
 ﻿if ($vccred) { Remove-Variable vccred }
 if ($global:DefaultVIServers) { Disconnect-VIServer -Server * -Confirm:$false }
 
-$vccred = Get-Credential -Credential F8073716
+$vccred = Get-Credential -Credential herzog
 if (-not $vccred) { Return "Invalid Credential" }
 
-$ClusterWildCard = "*UDC*"
-$VDSWildCard = "*UDC*"
+$ClusterWildCard = "*XXX*"
+$VDSWildCard = "*XXX*"
 
-$vclist = "nfvvm01-vcn-01.timbrasil.nfvi","nfvvm01-vcn-05.timbrasil.nfvi"
+$vclist = "",""
 
 foreach ($myvc in $vclist) {
 
