@@ -2,12 +2,12 @@
 if ($vccred) { Remove-Variable vccred }
 if ($global:DefaultVIServers) { Disconnect-VIServer -Server * -Confirm:$false }
 
-$vccred = Get-Credential -Credential F8068563
+$vccred = Get-Credential -Credential herzog
 if (-not $vccred) { Return "Invalid Credential" }
 
 # Variables
-$vcenter = "vim-vm01-vcsa08.timbrasil.nfvi"
-$mycluster = "CTA01_SILO_IMS_CORE_01"
+$vcenter = "XXX"
+$mycluster = "XXX"
 
 Connect-VIServer $vcenter -Credential $vccred | Out-Null
 if (-not $?) { Return "Unable to connect to vCenter: Check Reason on Error Message above" }
